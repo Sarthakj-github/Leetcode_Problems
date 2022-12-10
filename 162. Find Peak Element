@@ -1,0 +1,15 @@
+class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        n=len(nums)
+        i=0
+        j=n-1
+        m=(i+j)//2
+        while i<=j:
+            if (m-1)<0 or ((m-1)>=0 and nums[m-1]<nums[m]):
+                if (m+1)>=n or ((m+1)<n and nums[m+1]<nums[m]):
+                    return m
+                else:
+                    i+=1
+            else:
+                j-=1
+            m=(i+j)//2
