@@ -1,20 +1,14 @@
 class Solution:
     def smallestSubsequence(self, s: str) -> str:
-        S=[]
-        st=set()
+        last = {c:i for i,c in enumerate(s)}   # last occurrence of each char
+        st = []
+        used = set()
 
-        for i in s[::-1]:
-            if i not in st:
-                st.add(i)
-                S.append(i)
-            elif S[-1]>i:
-                S.append(i)
-            print(i,S)
-        print(S)
-        ans=''
-        while S:
-            j=S.pop()
-            if j in st:
-                ans+=j
-                st.remove(j)
-        return ans
+        for i,c in enumerate(s):
+            if c in used:
+                continue
+            while st and c < st[-1] and last[st[-1]] > i:
+                used.remove(st.pop())
+            st.append(c)
+            used.add(c)
+        return ''.join(st)
