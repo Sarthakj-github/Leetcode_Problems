@@ -4,17 +4,15 @@ class Solution:
         d={}
         ns=''
         p=''
-        for i in s:
-            if i not in d:
-                d[i]=0
-            d[i]+=1
-            if d[i]%2:
-                p=i
-        
-        if d[p]%2==0:
-            p=''
-        
+        n=len(s)
+        if n%2:
+            p=s[n//2]
+        for i in range(n//2):
+            if s[i] not in d:
+                d[s[i]]=0
+            d[s[i]]+=1
+            
         for i in sorted(d.keys()):
-            ns+=i*(d[i]//2)
+            ns+=i*(d[i])
         
         return ns+p+ns[::-1]
