@@ -11,7 +11,7 @@ class Solution:
         
         return dp[l][r]
     
-    def PredictTheWinner(self, nums):
+    def predictTheWinner(self, nums: List[int]) -> bool:
         n = len(nums)
         dp = [[-1 for _ in range(n)] for _ in range(n)]
         
