@@ -5,7 +5,7 @@ def divisors_n(n):
             d.append(i)
             if i * i != n:
                 d.append(n // i)
-    return sorted(d)
+    return d
 
 def cyclic_rotate_sort(a):
     k = len(a)
