@@ -1,5 +1,3 @@
-from math import isqrt
-
 def divisors_n(n):
     d = []
     for i in range(1, isqrt(n) + 1):
