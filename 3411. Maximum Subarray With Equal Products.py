@@ -1,10 +1,7 @@
-import math
-
 class Solution:
     def maxLength(self, nums: list[int]) -> int:
         n = len(nums)
         ans = 0
-        # Upper bound to prune the inner loop when product grows too large
         max_p = math.lcm(*nums) * max(nums)
         
         for i in range(n):
